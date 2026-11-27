@@ -1,0 +1,539 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet">
+
+<title>Time 04 — Bootcamp GenAI</title><link rel="icon" type="image/png" sizes="128x128" href="design/time04-favicon.png"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}.bg-grid-pattern{background-size:24px 24px;background-image:radial-gradient(circle,rgba(134,188,37,0.08) 1px,transparent 1px);}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed":"#baf55b","inverse-primary":"#466800","surface-container":"#1f1f24","deloitte-green":"#86BC25","surface-tint":"#9fd840","surface-container-low":"#1a1b20","inverse-on-surface":"#2f3035","surface-container-lowest":"#0d0e12","tertiary-fixed":"#ffd7f3","tertiary":"#ffacee","tertiary-container":"#fa7ee8","text-muted":"#B8BEC3","on-primary-fixed-variant":"#344e00","on-background":"#e3e2e8","graphite-border":"#282C31","surface-container-high":"#292a2e","tertiary-fixed-dim":"#ffabee","on-tertiary":"#5c0057","on-secondary-fixed":"#00210c","text-dim":"#A9B0B6","secondary-fixed-dim":"#00e478","error-container":"#93000a","surface-elevated":"#121417","primary":"#a0d841","on-primary":"#223600","on-tertiary-fixed-variant":"#81087a","electric-emerald":"#00FF87","secondary-container":"#34ff8c","outline-variant":"#434937","on-secondary":"#003919","on-primary-container":"#2e4700","inverse-surface":"#e3e2e8","surface":"#121317","primary-fixed-dim":"#9fd840","surface-dim":"#121317","outline":"#8d937e","on-tertiary-container":"#770071","on-primary-fixed":"#121f00","on-surface":"#e3e2e8","on-error-container":"#ffdad6","surface-bright":"#38393e","secondary-fixed":"#60ff98","secondary":"#f5fff3","error":"#ffb4ab","on-secondary-fixed-variant":"#005227","surface-container-highest":"#343439","on-tertiary-fixed":"#390035","on-error":"#690005","primary-container":"#86bc25","on-surface-variant":"#c3c9b2","surface-variant":"#343439","on-secondary-container":"#007239","graphite-surface":"#1A1D20","background":"#121317"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xl":"2.5rem","space-xxl":"4rem","space-sm":"0.5rem","gutter":"1.5rem","space-xs":"0.25rem","margin":"4rem","margin-mobile":"1.5rem","space-lg":"1.5rem","gutter-mobile":"1rem","space-md":"1rem"},fontFamily:{"body-md":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"],"label-lg":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"headline-md":["Space Grotesk"],"headline-sm":["Space Grotesk"],"headline-xl":["Space Grotesk"],"label-sm":["Space Grotesk"],"headline-lg":["Space Grotesk"],"label-md":["Space Grotesk"]},fontSize:{"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"label-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1em","fontWeight":"500"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.08em","fontWeight":"600"}]}}}};</script><style>.depth-card{box-shadow:0 10px 30px -10px rgba(0,0,0,0.8),0 0 1px 1px rgba(255,255,255,0.08);transition:all 0.3s ease;}.depth-card:hover{box-shadow:0 16px 36px -10px rgba(0,0,0,0.9),0 0 20px rgba(134,188,37,0.18),0 0 1px 1px rgba(134,188,37,0.3);}.code-box-shadow{box-shadow:inset 0 2px 6px rgba(0,0,0,0.8),0 4px 14px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.07);}.text-high-contrast{color:#e8ecef;}.text-medium-contrast{color:#c5cbd1;}
+/* Legibilidade para apresentação e uso em telas menores. */
+:root{--readable-muted:#b8bec3;--readable-dim:#a9b0b6;--focus:#baf55b}
+html{scroll-behavior:smooth;scroll-padding-top:6rem}
+section[id]{scroll-margin-top:6rem}
+body{font-family:Inter,Arial,sans-serif}
+h1,h2,h3,.font-headline-sm,.font-headline-lg{font-family:"Space Grotesk",Inter,Arial,sans-serif}
+.font-label-sm,.font-label-md,.font-label-lg{font-family:"Space Grotesk",Inter,Arial,sans-serif}
+.material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:normal;font-style:normal;line-height:1;display:inline-block;white-space:nowrap;direction:ltr;font-feature-settings:"liga";-webkit-font-smoothing:antialiased}
+.text-text-muted{color:var(--readable-muted)!important}.text-text-dim{color:var(--readable-dim)!important}
+.text-label-sm,.text-label-md{font-size:14px!important;line-height:1.45!important}
+.text-body-sm{font-size:16px!important;line-height:1.55!important}
+.text-xs{font-size:14px!important;line-height:1.4!important}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+button{cursor:pointer}
+#memberModal>div{max-height:calc(100dvh - 2rem)}
+#evidenceFilterBar{flex-wrap:wrap;justify-content:flex-start}
+#evidenceFilterBar button{min-height:44px}
+.deliverable-card>div:last-child{gap:.75rem;flex-wrap:wrap}
+.deliverable-card a{overflow-wrap:anywhere}
+@media(max-width:767px){.hero-actions>a{width:100%;justify-content:center}.hero-diagram{padding:0}.hero-diagram>div{aspect-ratio:auto;min-height:340px}.team-card{padding:1.25rem}.team-card .member-image{min-height:240px}.modal-meta{flex-wrap:wrap}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Navega??o: contraste e luz contida sobre o grafite da marca. */
+.top-nav{background:linear-gradient(150deg,rgba(47,52,50,.96),rgba(19,22,24,.98) 60%);border:1px solid rgba(186,245,91,.25);box-shadow:inset 0 1px rgba(255,255,255,.14),0 10px 24px rgba(0,0,0,.38)}
+.top-nav-link{font-size:16px!important;line-height:1.25!important;position:relative;isolation:isolate;color:#e3e2e8;font-weight:700;letter-spacing:.03em;min-height:48px;display:inline-flex;align-items:center;white-space:nowrap;transition:background-color .18s ease,color .18s ease,box-shadow .18s ease,transform .12s ease}
+.top-nav-link::before{content:"";position:absolute;left:18%;right:18%;top:0;height:1px;border-radius:1px;background:linear-gradient(90deg,transparent,rgba(186,245,91,.8),transparent);opacity:0;transition:opacity .18s ease}
+.top-nav-link:hover,.top-nav-link:focus-visible{color:#f5fff3;background:rgba(134,188,37,.17);box-shadow:inset 0 1px rgba(186,245,91,.22),0 4px 12px rgba(0,0,0,.22)}
+.top-nav-link:hover::before,.top-nav-link:focus-visible::before,.top-nav-link[aria-current="location"]::before{opacity:1}
+.top-nav-link:active{transform:scale(.97);background:rgba(134,188,37,.26)}
+.top-nav-link[aria-current="location"]{color:#121f00;background:linear-gradient(155deg,#baf55b,#86bc25);box-shadow:inset 0 1px rgba(255,255,255,.5),0 4px 12px rgba(134,188,37,.22)}
+.top-nav-link[aria-current="location"]::before{background:linear-gradient(90deg,transparent,#fff,transparent)}
+@media(prefers-contrast:more){.top-nav{background:#121317;border-color:#baf55b}.top-nav-link:hover,.top-nav-link:focus-visible{background:#344e00}.top-nav-link[aria-current="location"]{background:#baf55b}}
+@media(prefers-reduced-transparency:reduce){.top-nav{background:#1a1b20}}
+</style></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-deloitte-green selection:text-surface-container-lowest min-h-screen" style="overflow: auto;"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 w-full max-w-none mx-auto px-6 lg:px-12 flex items-center justify-between gap-4"><div class="flex items-center gap-2 sm:gap-4 min-w-0"><img src="design/time04-logo-cropped.png" alt="Logo do Time 04" class="h-auto w-[112px] sm:w-[190px] lg:w-[225px] max-h-16 object-contain shrink-0"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface tracking-wider uppercase flex items-center gap-1.5">Time 04 <span class="text-deloitte-green">•</span> GenAI</span><span class="font-label-sm text-label-sm text-text-dim uppercase tracking-widest hidden sm:inline-block">Enterprise Intelligence Unit</span></div></div><nav aria-label="Navegação principal" class="top-nav hidden xl:flex items-center gap-1 p-1 rounded-xl"><a class="top-nav-link font-label-md text-label-md px-4 py-2 rounded-lg" data-path="inicio" href="#inicio">Início</a><a class="top-nav-link font-label-md text-label-md px-4 py-2 rounded-lg" data-path="integrantes" href="#integrantes">Integrantes</a><a class="top-nav-link font-label-md text-label-md px-4 py-2 rounded-lg" data-path="repositorios-entregaveis" href="#repositorios-entregaveis">Repositórios &amp; Entregáveis</a></nav><button type="button" class="xl:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg bg-surface-container-high text-on-surface" id="menuToggle" aria-label="Abrir menu" aria-controls="mobileNav" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button><div class="hidden md:flex items-center gap-3"><div class="hidden 2xl:flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-deloitte-green animate-pulse"></span><span class="font-label-sm text-label-sm uppercase tracking-wider text-deloitte-green">Bootcamp Deloitte GenAI</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav id="mobileNav" aria-label="Navegação para telas menores" class="team-mobile-nav hidden xl:hidden flex-col gap-1 px-6 pb-4 bg-surface"><a class="p-3 rounded text-on-surface" href="#inicio">Início</a><a class="p-3 rounded text-on-surface" href="#integrantes">Integrantes</a><a class="p-3 rounded text-on-surface" href="#repositorios-entregaveis">Repositórios &amp; Entregáveis</a></nav></header><main class="w-full pt-20 bg-surface-container-lowest bg-grid-pattern relative min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full text-on-surface">
+<!-- ========================================== -->
+<!-- 01. HERO / BANCA INTRO SECTION            -->
+<!-- ========================================== -->
+<section class="relative w-full overflow-hidden px-6 lg:px-12 py-16 lg:py-24 border-b border-graphite-border/60" id="inicio">
+<!-- Atmospheric Ambient Glows -->
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-deloitte-green/10 blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-40 w-[28rem] h-[28rem] rounded-full bg-electric-emerald/10 blur-[140px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
+<!-- Top Badge / Overline Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-4"><div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-container border border-deloitte-green/40 shadow-lg" style="box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 16px, rgba(134, 188, 37, 0.25) 0px 0px 10px;">
+  <span class="inline-block w-2.5 h-2.5 rounded-full bg-deloitte-green shadow-[0_0_8px_#86BC25] animate-ping"></span>
+  <span class="font-label-md text-sm md:text-sm font-semibold tracking-wider text-primary uppercase">
+    Bootcamp GenAI Deloitte • Apresentação Final
+  </span>
+</div>
+<div class="flex items-center gap-3 font-label-md text-sm tracking-wider uppercase font-medium" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 2px 4px;">
+  
+  <span class="text-outline">/</span>
+  
+  <span class="text-outline">/</span>
+  
+</div></div>
+<!-- Main Headline + Asymmetrical Layout with Interactive Convergence Graph -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Editorial Typography -->
+<div class="lg:col-span-7 flex flex-col gap-6"><div class="space-y-4">
+<span class="font-label-md text-base uppercase tracking-wider text-deloitte-green flex items-center gap-2 font-semibold">
+<span class="material-symbols-outlined text-lg">hub</span>
+              Sinergia Algorítmica &amp; Execução Aplicada
+            </span>
+<h1 class="text-4xl sm:text-5xl lg:text-[68px] lg:leading-[76px] text-on-surface tracking-tight font-bold">
+              O time que <span class="block">impactou com</span><span class="block"><span class="text-transparent bg-clip-text bg-gradient-to-r from-deloitte-green via-primary-fixed to-electric-emerald">inovação contínua.
+              </span></span></h1>
+</div>
+<p class="text-xl lg:text-2xl leading-relaxed text-medium-contrast max-w-2xl font-normal">
+            Apresentação oficial do <strong class="text-on-surface font-semibold">Time 04</strong>: quatro perspectivas complementares unidas pela experimentação prática em Inteligência Artificial Generativa, agentes autônomos e arquiteturas cognitivas corporativas para o ecossistema Deloitte.
+          </p>
+<div class="hero-actions flex flex-wrap items-center gap-5 pt-4">
+<a class="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-deloitte-green text-surface-container-lowest font-label-md text-base uppercase tracking-wider font-bold transition-all duration-300 hover:bg-electric-emerald hover:shadow-[0_0_20px_rgba(134,188,37,0.4)]" href="#integrantes">
+<span>Explorar Integrantes</span>
+<span class="material-symbols-outlined text-xl">group</span>
+</a>
+<a class="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-surface-container-high text-on-surface font-label-md text-base uppercase tracking-wider hover:bg-surface-bright transition-all border border-graphite-border/70 font-semibold" href="#repositorios-entregaveis">
+<span class="material-symbols-outlined text-deloitte-green text-xl">terminal</span>
+<span>&gt; Ver Códigos &amp; POCs</span>
+</a>
+</div></div>
+<!-- Right: Geometric 4-Quadrant Visual Node (Convergence of 4 paths) -->
+<div class="hero-diagram lg:col-span-5 relative flex items-center justify-center p-6">
+<div class="relative w-full max-w-md aspect-square rounded-2xl bg-surface-container-low p-6 shadow-2xl flex flex-col justify-between overflow-hidden">
+<!-- Pixel grid canvas background -->
+<div class="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
+<!-- Central Node Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-deloitte-green/20 blur-2xl pointer-events-none"></div>
+<!-- Top Quadrants -->
+<div class="grid grid-cols-2 gap-4 relative z-10">
+<div class="p-4 rounded-xl bg-surface-container/80 flex flex-col justify-between hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-deloitte-green font-mono">Q1 // SYS</span>
+<span class="w-1.5 h-1.5 rounded-full bg-deloitte-green"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-deloitte-green transition-colors">LLMOps</span>
+<span class="font-label-sm text-label-sm text-text-dim mt-1">Infra &amp; Orquestração</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container/80 flex flex-col justify-between hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-deloitte-green font-mono">Q2 // PROD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-deloitte-green"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-deloitte-green transition-colors">Estratégia</span>
+<span class="font-label-sm text-label-sm text-text-dim mt-1">Negócios &amp; Impacto</span>
+</div>
+</div>
+<!-- Central Dynamic Hub Indicator -->
+<div class="my-4 py-3 px-4 rounded-lg bg-surface-container-lowest flex items-center justify-between relative z-10 shadow-inner">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-deloitte-green/10 flex items-center justify-center text-deloitte-green">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface tracking-wider uppercase">Convergência GenAI</span>
+<span class="font-label-sm text-label-sm text-text-dim">4 Agentes Humanos • 1 Objetivo</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-deloitte-green font-mono px-2 py-0.5 rounded bg-deloitte-green/10">SYNC 100%</span>
+</div>
+<!-- Bottom Quadrants -->
+<div class="grid grid-cols-2 gap-4 relative z-10">
+<div class="p-4 rounded-xl bg-surface-container/80 flex flex-col justify-between hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-deloitte-green font-mono">Q3 // DEV</span>
+<span class="w-1.5 h-1.5 rounded-full bg-deloitte-green"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-deloitte-green transition-colors">Full Stack</span>
+<span class="font-label-sm text-label-sm text-text-dim mt-1">APIs &amp; Interfaces</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container/80 flex flex-col justify-between hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-deloitte-green font-mono">Q4 // SCI</span>
+<span class="w-1.5 h-1.5 rounded-full bg-deloitte-green"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-deloitte-green transition-colors">Data / Pesquisa</span>
+<span class="font-label-sm text-label-sm text-text-dim mt-1">RAG &amp; Avaliações</span>
+</div>
+</div>
+<!-- Subtle 4-corner aesthetic micro-dots -->
+<div class="absolute top-2 left-2 flex gap-1"><span class="w-1 h-1 bg-deloitte-green/40"></span><span class="w-1 h-1 bg-deloitte-green/20"></span></div>
+<div class="absolute bottom-2 right-2 flex gap-1"><span class="w-1 h-1 bg-deloitte-green/20"></span><span class="w-1 h-1 bg-deloitte-green/40"></span></div>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Bar (Pixel/Data Style) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6"><div class="p-8 rounded-xl bg-surface-container-low border border-graphite-border/60 depth-card flex flex-col gap-2 hover:bg-surface-container transition-all"><span class="text-5xl lg:text-6xl text-deloitte-green font-bold drop-shadow-[0_2px_12px_rgba(134,188,37,0.35)] font-mono">04</span><span class="text-base lg:text-lg text-on-surface uppercase tracking-wider font-bold">Especialistas Multidisciplinares</span><span class="text-base text-medium-contrast">Perfis de extremo potêncial</span></div><div class="p-8 rounded-xl bg-surface-container-low border border-graphite-border/60 depth-card flex flex-col gap-2 hover:bg-surface-container transition-all"><span class="text-5xl lg:text-6xl text-on-surface font-bold drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)] font-mono">25</span><span class="text-base lg:text-lg text-on-surface uppercase tracking-wider font-bold">dias intensivos</span><span class="text-base text-medium-contrast">Iteração técnica sob pressão</span></div><div class="p-8 rounded-xl bg-surface-container-low border border-graphite-border/60 depth-card flex flex-col gap-2 hover:bg-surface-container transition-all"><div class="flex items-baseline gap-1.5"><span class="text-5xl lg:text-6xl text-electric-emerald font-bold drop-shadow-[0_2px_12px_rgba(0,255,135,0.4)] font-mono">100</span><span class="text-3xl text-electric-emerald font-bold font-mono">%</span></div><span class="text-base lg:text-lg text-on-surface uppercase tracking-wider font-bold">Entrega Prática em Produção</span><span class="text-base text-medium-contrast">Pipelines testados e funcionais</span></div><div class="p-8 rounded-xl bg-surface-container-low border border-graphite-border/60 depth-card flex flex-col gap-2 hover:bg-surface-container transition-all"><span class="text-5xl lg:text-6xl text-on-surface font-bold drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)] font-mono">01</span><span class="text-base lg:text-lg text-on-surface uppercase tracking-wider font-bold">Hub Integrado de Soluções</span><span class="text-base text-medium-contrast">Soluções que geram impacto</span></div></div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 02. OS QUATRO PARTICIPANTES               -->
+<!-- ========================================== -->
+<section class="relative w-full px-6 lg:px-12 py-20 bg-surface-container-lowest/50 border-b border-graphite-border/60" id="integrantes">
+<div class="max-w-7xl mx-auto flex flex-col gap-12">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6"><div class="flex flex-col gap-3.5">
+  <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-surface-container border border-graphite-border/70 shadow-md w-fit">
+    <span class="font-label-md text-xs uppercase tracking-wider text-deloitte-green font-semibold">Squad Showcase</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-deloitte-green"></span>
+    <span class="font-label-md text-xs text-on-surface uppercase tracking-wider font-medium">Team Four Members</span>
+  </div>
+  <h2 class="font-headline-lg text-headline-lg lg:text-[44px] text-on-surface font-bold tracking-tight" style="filter: drop-shadow(rgba(0, 0, 0, 0.9) 0px 2px 8px);">
+    Integrantes &amp; Trajetórias
+  </h2>
+  <p class="font-body-lg text-body-lg text-on-surface/90 max-w-2xl leading-relaxed" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 3px;">
+    Clique no card de qualquer integrante para expandir seu dossiê detalhado, ambições de carreira na consultoria e evidências de código.
+  </p>
+</div>
+<div class="flex items-center gap-2.5 bg-surface-container border border-graphite-border px-4 py-2.5 rounded-lg shadow-lg text-on-surface font-label-md text-xs uppercase tracking-wider">
+  <span class="material-symbols-outlined text-[20px] text-deloitte-green drop-shadow-[0_0_8px_rgba(134,188,37,0.5)]">touch_app</span>
+  <span class="font-semibold">Selecione um participante para expandir o perfil</span>
+</div></div>
+<!-- 4 Profiles Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><div class="team-card group relative rounded-2xl bg-surface-container-low border border-graphite-border/70 p-7 flex flex-col justify-between hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 depth-card cursor-pointer" role="button" tabindex="0" aria-label="Ver perfil de Jefferson Marcelo" data-member="jefferson" onclick="openMemberModal('jefferson')" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();openMemberModal('jefferson')}">
+  <div class="flex flex-col gap-6">
+    <div class="member-image relative w-full min-h-[300px] aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-high shadow-lg"><img class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyj61THoq9V6VeustYiD2NbClBZsGIlEuzwmelmZ7iOXs2UW25B9njPqnbbSxwo6JT6O93HQBSpcIALbN0SS-G0e1gY12YD4mTDZdGAkcqjAIDvfuZrApCK0dmPQr8fLZSsOk9kBv7VGqZibxr-FlDRgTdbieubmnxM2dYSlNzXw7fSpN1eW1kcz_9Dzi-a-btnTjwh3wV1APWS0wEab4vIAnplvSR2QPBYig434JHvK5YEwS5RaHVEg" alt="Retrato de Jefferson Marcelo">
+      <div class="absolute top-3 left-3 px-3 py-1.5 rounded-lg bg-surface-container-lowest/90 text-sm font-mono text-deloitte-green font-bold border border-deloitte-green/30">#01 // ENG</div>
+      <div class="absolute bottom-3 right-3 w-5 h-5 border-r-2 border-b-2 border-deloitte-green"></div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="text-2xl text-on-surface group-hover:text-deloitte-green transition-colors font-bold">Jefferson Marcelo</h3>
+      <span class="text-sm text-primary-fixed uppercase tracking-wider font-bold">AI PRODUCT BUILDER</span>
+      <p class="text-base leading-relaxed text-medium-contrast mt-1">Estudante de Ciência da Computação com experiência em CRM, RevOps e automação com IA. No bootcamp, desenvolve agentes e fluxos em Python, LangChain e LangGraph.</p>
+    </div>
+    <div class="flex flex-wrap gap-2.5 pt-2">
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Agentes de IA</span>
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Python</span>
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">LangChain &amp; LangGraph</span>
+    </div>
+  </div>
+  <div class="pt-6 mt-6 border-t border-graphite-border/60 flex items-center justify-between text-deloitte-green text-sm uppercase tracking-wider font-bold group-hover:text-electric-emerald"><span>Ver Dossiê Completo</span><span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span></div>
+</div><div class="team-card group relative rounded-2xl bg-surface-container-low border border-graphite-border/70 p-7 flex flex-col justify-between hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 depth-card cursor-pointer" role="button" tabindex="0" aria-label="Ver perfil de João Victor" data-member="joao" onclick="openMemberModal('joao')" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();openMemberModal('joao')}">
+  <div class="flex flex-col gap-6">
+    <div class="member-image relative w-full min-h-[300px] aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-high shadow-lg"><img class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" alt="Retrato do card original" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxNGB_JG52fQQVImnBguSUxZ9xjjV6R6_XgP6et5_4mVxT4tafQHTmix3qHjhl-cdeq7d9IbtxP6sxIZCxE4AcuBr9v--4h9iEHPngGvFTZ-nTpzmBpAeFXZtHFUS0mu25t1VGsqkzgD5IhUlueUjTn-fFcwtHbEf9v2lSAcDZtUm1AwJ5bmTUIBSNIX_lnmWRYQ8BZ0-_ja4Rr9kecq0lh3FrEJAmdVcMVeGNDzPjGnGs_QdVbSm3pQ">
+      <div class="absolute top-3 left-3 px-3 py-1.5 rounded-lg bg-surface-container-lowest/90 text-sm font-mono text-deloitte-green font-bold border border-deloitte-green/30">#02 // ENG IA</div>
+      <div class="absolute bottom-3 right-3 w-5 h-5 border-r-2 border-b-2 border-deloitte-green"></div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center justify-between gap-2"><h3 class="text-2xl text-on-surface group-hover:text-deloitte-green transition-colors font-bold">João Victor</h3><span class="text-base text-medium-contrast font-medium whitespace-nowrap">21 anos</span></div>
+      <span class="text-sm text-primary-fixed uppercase tracking-wider font-bold">Solution &amp; AI Strategist</span>
+
+      <p class="text-base leading-relaxed text-medium-contrast mt-1">Desenvolvedor de software em formação, com interesse em Engenharia de IA e sistemas agênticos. Entende problemas de ponta a ponta e busca transformar necessidades reais em soluções tecnológicas.</p>
+    </div>
+    <div class="flex flex-wrap gap-2.5 pt-2">
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Agentes de IA</span>
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">LangGraph</span>
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Python</span>
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Automação de processos</span>
+      <span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Desenvolvimento de soluções</span>
+    </div>
+  </div>
+  <div class="pt-6 mt-6 border-t border-graphite-border/60 flex items-center justify-between text-deloitte-green text-sm uppercase tracking-wider font-bold group-hover:text-electric-emerald"><span>Ver Dossiê Completo</span><span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span></div>
+</div><div class="team-card group relative rounded-2xl bg-surface-container-low border border-graphite-border/70 p-7 flex flex-col justify-between hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 depth-card cursor-pointer" role="button" tabindex="0" aria-label="Ver perfil de Rodrigo" data-member="rodrigo" onclick="openMemberModal('rodrigo')" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();openMemberModal('rodrigo')}"><div class="flex flex-col gap-6"><div class="relative w-full member-image min-h-[300px] aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-high shadow-lg"><img class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" alt="Retrato de Rodrigo Galvão" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEsXiIOAIsy4CXfUTyvx85tBQE1H-POzY8D-axTQgpYxEoXgbeLiwz7IoBd8W2Z2450k1SbBlmuSJMH7cs_RVSkV6ctpEaLd0cGiHPyGc-UVn1Gxq9AuLqYlptsdEjdBq5F21kFzPb7KFbv94g_6bTQTGCGqhzL5ePHx359gCbq2LKlyC8Rpwjrz8yY5SPa906SKF93vZitfjaRUjhX8xx5WstV836nytm6r6dWySoWudZuWr-pbA7DA"><div class="absolute top-3 left-3 px-3 py-1.5 rounded-lg bg-surface-container-lowest/90 text-sm font-mono text-deloitte-green font-bold border border-deloitte-green/30 shadow">#03 // DEV</div><div class="absolute bottom-3 right-3 w-5 h-5 border-r-2 border-b-2 border-deloitte-green"></div></div><div class="flex flex-col gap-2"><div class="flex items-center justify-between"><h3 class="text-2xl text-on-surface group-hover:text-deloitte-green transition-colors font-bold">Rodrigo Galvão</h3></div><span class="text-sm text-primary-fixed uppercase tracking-wider font-bold">Back-End Developer</span><p class="text-base leading-relaxed text-medium-contrast mt-1">Desenvolvedor back-end na Atos Capital, com experiência em sistemas financeiros, integrações e automação. No bootcamp, explora agentes de IA com Python, arquitetura e testes.</p></div><div class="flex flex-wrap gap-2.5 pt-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">C# &amp; .NET</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Python</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">APIs REST</span></div></div><div class="pt-6 mt-6 border-t border-graphite-border/60 flex items-center justify-between text-deloitte-green text-sm uppercase tracking-wider font-bold group-hover:text-electric-emerald"><span>Ver Dossiê Completo</span><span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span></div></div><div class="team-card group relative rounded-2xl bg-surface-container-low border border-graphite-border/70 p-7 flex flex-col justify-between hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 depth-card cursor-pointer" role="button" tabindex="0" aria-label="Ver perfil de Pedro" data-member="pedro" onclick="openMemberModal('pedro')" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();openMemberModal('pedro')}"><div class="flex flex-col gap-6"><div class="relative w-full member-image min-h-[300px] aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-high shadow-lg"><img class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" alt="Retrato de Pedro Pereira" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlzlDBzIEP2cx3rSxPjJJQGtf2yUclb4n2rBcDvwoksYT39Vt2d32tiOO1G7x2jd6qzPdSCZ0Om5QlK2XJampjzvNv5JnYhlRv8sr4QDSX4P-fhSjh5UwN-2toUPTrPMnj4AoOSKJXqw_UuG15HrtCramqwu6FOGPtaCSsFnaeQNfh94sKUwLNpHJdPnoCWr3rhEny3UMxgyG0n7MZi43X46XS_vSAt5Dke4Olgu4kz-XDRjndwT0eeQ"><div class="absolute top-3 left-3 px-3 py-1.5 rounded-lg bg-surface-container-lowest/90 text-sm font-mono text-deloitte-green font-bold border border-deloitte-green/30 shadow">#04 // SCI</div><div class="absolute bottom-3 right-3 w-5 h-5 border-r-2 border-b-2 border-deloitte-green"></div></div><div class="flex flex-col gap-2"><div class="flex items-center justify-between"><h3 class="text-2xl text-on-surface group-hover:text-deloitte-green transition-colors font-bold">Pedro Pereira</h3></div><span class="text-sm text-primary-fixed uppercase tracking-wider font-bold">AI DATA SCIENTIST</span><p class="text-base leading-relaxed text-medium-contrast mt-1">Estudante de Ciência de Dados e IA na CESAR School, com experiência em TI e Design Gráfico. Desenvolve soluções com agentes de IA para energia solar e baterias elétricas.</p></div><div class="flex flex-wrap gap-2.5 pt-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Agentes de IA</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Python para Dados</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-xs font-mono text-on-surface font-semibold">Engenharia de Dados</span></div></div><div class="pt-6 mt-6 border-t border-graphite-border/60 flex items-center justify-between text-deloitte-green text-sm uppercase tracking-wider font-bold group-hover:text-electric-emerald"><span>Ver Dossiê Completo</span><span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span></div></div></div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 03. VISÃO COLETIVA — A JORNADA DO TIME     -->
+<!-- ========================================== -->
+
+<!-- ========================================== -->
+<!-- 04. EXERCÍCIOS, CÓDIGO & EVIDÊNCIAS       -->
+<!-- ========================================== -->
+<section class="relative w-full px-6 lg:px-12 py-20 border-b border-graphite-border/60" id="repositorios-entregaveis">
+<div class="max-w-7xl mx-auto flex flex-col gap-12">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-deloitte-green px-2.5 py-1 rounded bg-surface-container-low">Banca Validation Assets</span>
+<span class="w-1.5 h-1.5 rounded-full bg-text-dim"></span>
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Arquiteturas Desenvolvidas</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Exercícios, Código &amp; Evidências Técnicas
+          </h2>
+<p class="font-body-md text-body-md text-text-muted max-w-xl">
+            Seis exercícios de IA agêntica: dos primeiros grafos e decisões de frota ao servidor MCP e à recuperação de conhecimento com RAG.
+          </p>
+</div>
+<!-- Filter Tabs (Interactive) -->
+<div class="flex items-center gap-1.5 p-1 rounded-lg bg-surface-container-low" id="evidenceFilterBar" aria-label="Filtrar exercícios"><button class="deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider bg-deloitte-green text-surface-container-lowest font-bold transition-all" aria-pressed="true" data-target="all" onclick="filterDeliverables('all')">Todos (6)</button><button class="deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-on-surface transition-all" aria-pressed="false" data-target="semana1" onclick="filterDeliverables('semana1')">Semana 1</button><button class="deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-on-surface transition-all" aria-pressed="false" data-target="semana2" onclick="filterDeliverables('semana2')">Semana 2</button><button class="deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-on-surface transition-all" aria-pressed="false" data-target="semana3" onclick="filterDeliverables('semana3')">Semana 3</button><button class="deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-on-surface transition-all" aria-pressed="false" data-target="mcp" onclick="filterDeliverables('mcp')">MCP</button></div>
+</div>
+<!-- Deliverables List / Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="deliverablesContainer"><article class="deliverable-card flex flex-col gap-6 rounded-2xl bg-surface-container-low border border-graphite-border/70 p-6 md:p-7 depth-card" data-category="semana1">
+<span class="text-sm uppercase tracking-wider text-deloitte-green font-mono px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-deloitte-green/30 font-bold w-fit">EX 01 // SEMANA 1 · INTRODUTÓRIO</span>
+<div class="space-y-3"><h3 class="text-xl lg:text-2xl text-on-surface font-bold">Qual navio chega primeiro?</h3><p class="text-base leading-relaxed text-medium-contrast">Agente mínimo que identifica o menor ETA entre quatro navios. Usa um grafo linear de três nós e estado compartilhado.</p></div>
+<figure class="rounded-xl overflow-hidden code-box-shadow bg-surface-container-lowest"><a href="design/exercicio-01.svg" target="_blank" rel="noopener noreferrer" aria-label="Ampliar imagem do fluxo do exercício 01" class="block"><img src="design/exercicio-01.svg" alt="Fluxo ilustrativo de Qual navio chega primeiro?" class="w-full h-auto" loading="lazy"></a><figcaption class="px-4 pb-3 text-sm text-text-muted">Exemplo visual do fluxo; não é uma captura de execução.</figcaption></figure>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">LangGraph</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">LangChain</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">State</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Langfuse opcional</span></div><p class="border-t border-graphite-border/60 pt-4 text-sm leading-relaxed text-text-muted">Comparação entre prompt simples e melhorado, com cinco execuções cada. Lição: LLM não é calculadora confiável.</p></article><article class="deliverable-card flex flex-col gap-6 rounded-2xl bg-surface-container-low border border-graphite-border/70 p-6 md:p-7 depth-card" data-category="semana1">
+<span class="text-sm uppercase tracking-wider text-deloitte-green font-mono px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-deloitte-green/30 font-bold w-fit">EX 02 // SEMANA 1 · COMPLETO</span>
+<div class="space-y-3"><h3 class="text-xl lg:text-2xl text-on-surface font-bold">O despachante do porto</h3><p class="text-base leading-relaxed text-medium-contrast">Durante uma tempestade, o agente classifica a pergunta e segue um de três caminhos: chegada, regras ou fora de escopo.</p></div>
+<figure class="rounded-xl overflow-hidden code-box-shadow bg-surface-container-lowest"><a href="design/exercicio-02.svg" target="_blank" rel="noopener noreferrer" aria-label="Ampliar imagem do fluxo do exercício 02" class="block"><img src="design/exercicio-02.svg" alt="Fluxo ilustrativo de O despachante do porto" class="w-full h-auto" loading="lazy"></a><figcaption class="px-4 pb-3 text-sm text-text-muted">Exemplo visual do fluxo; não é uma captura de execução.</figcaption></figure>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">ToolNode</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">tools_condition</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">interrupt</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">MemorySaver</span></div><p class="border-t border-graphite-border/60 pt-4 text-sm leading-relaxed text-text-muted">Cálculos em código determinístico; o operador aprova ou rejeita a recomendação antes da retomada.</p></article><article class="deliverable-card flex flex-col gap-6 rounded-2xl bg-surface-container-low border border-graphite-border/70 p-6 md:p-7 depth-card" data-category="semana2">
+<span class="text-sm uppercase tracking-wider text-deloitte-green font-mono px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-deloitte-green/30 font-bold w-fit">EX 03 // SEMANA 2 · INTRODUTÓRIO</span>
+<div class="space-y-3"><h3 class="text-xl lg:text-2xl text-on-surface font-bold">Navegador e revisor de segurança</h3><p class="text-base leading-relaxed text-medium-contrast">Um agente propõe mudar a velocidade; um revisor independente aprova ou rejeita sem ver a justificativa do proponente.</p></div>
+<figure class="rounded-xl overflow-hidden code-box-shadow bg-surface-container-lowest"><a href="design/exercicio-03.svg" target="_blank" rel="noopener noreferrer" aria-label="Ampliar imagem do fluxo do exercício 03" class="block"><img src="design/exercicio-03.svg" alt="Fluxo ilustrativo de Navegador e revisor de segurança" class="w-full h-auto" loading="lazy"></a><figcaption class="px-4 pb-3 text-sm text-text-muted">Exemplo visual do fluxo; não é uma captura de execução.</figcaption></figure>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Multiagente</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Pydantic</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Estado tipado</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Revisão limitada</span></div><p class="border-t border-graphite-border/60 pt-4 text-sm leading-relaxed text-text-muted">Até duas rodadas de correção; depois o caso é escalado. Cenário com S1-FAROL, S2-MARE e S3-CORAL.</p></article><article class="deliverable-card flex flex-col gap-6 rounded-2xl bg-surface-container-low border border-graphite-border/70 p-6 md:p-7 depth-card" data-category="semana2 mcp">
+<span class="text-sm uppercase tracking-wider text-deloitte-green font-mono px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-deloitte-green/30 font-bold w-fit">EX 04 // SEMANA 2 · COMPLETO</span>
+<div class="space-y-3"><h3 class="text-xl lg:text-2xl text-on-surface font-bold">A frota via servidor MCP</h3><p class="text-base leading-relaxed text-medium-contrast">O fluxo executa comandos de velocidade por um servidor FastMCP separado, com ferramentas de leitura e escrita protegida.</p></div>
+<figure class="rounded-xl overflow-hidden code-box-shadow bg-surface-container-lowest"><a href="design/exercicio-04.svg" target="_blank" rel="noopener noreferrer" aria-label="Ampliar imagem do fluxo do exercício 04" class="block"><img src="design/exercicio-04.svg" alt="Fluxo ilustrativo de A frota via servidor MCP" class="w-full h-auto" loading="lazy"></a><figcaption class="px-4 pb-3 text-sm text-text-muted">Exemplo visual do fluxo; não é uma captura de execução.</figcaption></figure>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">FastMCP</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Idempotência</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Versão de estado</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Validação</span></div><p class="border-t border-graphite-border/60 pt-4 text-sm leading-relaxed text-text-muted">Um conflito de versão proposital leva o grafo a reler o estado e tentar novamente; erros de esquema são tratados.</p></article><article class="deliverable-card flex flex-col gap-6 rounded-2xl bg-surface-container-low border border-graphite-border/70 p-6 md:p-7 depth-card" data-category="semana3 rag">
+<span class="text-sm uppercase tracking-wider text-deloitte-green font-mono px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-deloitte-green/30 font-bold w-fit">EX 05 // SEMANA 3 · INTRODUTÓRIO</span>
+<div class="space-y-3"><h3 class="text-xl lg:text-2xl text-on-surface font-bold">Perguntas ao manual de operações</h3><p class="text-base leading-relaxed text-medium-contrast">O agente responde apenas com base em um manual fictício de operações portuárias, cita as fontes e informa quando a resposta não está no documento.</p></div>
+<figure class="rounded-xl overflow-hidden code-box-shadow bg-surface-container-lowest"><a href="design/exercicio-05.svg" target="_blank" rel="noopener noreferrer" aria-label="Ampliar fluxo do exercício 05" class="block"><img src="design/exercicio-05.svg" alt="Fluxo ilustrativo de Perguntas ao manual de operações" class="w-full h-auto" loading="lazy"></a><figcaption class="px-4 pb-3 text-sm text-text-muted">Fluxo ilustrativo; toque ou clique para ampliar.</figcaption></figure>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">RAG</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Embeddings</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Vector store</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Fontes</span></div><p class="border-t border-graphite-border/60 pt-4 text-sm leading-relaxed text-text-muted">Chunks por seção com metadados; busca vetorial top-k = 3 e grafo retrieve → generate → format_output. Sem resposta no contexto: “Não encontrado no manual de operações.”</p></article><article class="deliverable-card flex flex-col gap-6 rounded-2xl bg-surface-container-low border border-graphite-border/70 p-6 md:p-7 depth-card" data-category="semana3 rag">
+<span class="text-sm uppercase tracking-wider text-deloitte-green font-mono px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-deloitte-green/30 font-bold w-fit">EX 06 // SEMANA 3 · COMPLETO</span>
+<div class="space-y-3"><h3 class="text-xl lg:text-2xl text-on-surface font-bold">RAG com dados da frota, tools e Langfuse</h3><p class="text-base leading-relaxed text-medium-contrast">O agente roteia perguntas, combina o relatório da frota com o manual de operações e usa ferramentas de cálculo para responder ou apontar dados ausentes.</p></div>
+<figure class="rounded-xl overflow-hidden code-box-shadow bg-surface-container-lowest"><a href="design/exercicio-06.svg" target="_blank" rel="noopener noreferrer" aria-label="Ampliar fluxo do exercício 06" class="block"><img src="design/exercicio-06.svg" alt="Fluxo ilustrativo de RAG com dados da frota, tools e Langfuse" class="w-full h-auto" loading="lazy"></a><figcaption class="px-4 pb-3 text-sm text-text-muted">Fluxo ilustrativo; toque ou clique para ampliar.</figcaption></figure>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">RAG avançado</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Tools de cálculo</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Langfuse</span><span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-graphite-border/60 text-sm text-on-surface font-semibold">Reducer de fontes</span></div><p class="border-t border-graphite-border/60 pt-4 text-sm leading-relaxed text-text-muted">Regras, frota e fora de escopo são caminhos distintos. Inclui filtro por metadados, saída estruturada, reducer de fontes, cálculo de ETA, reserva de combustível e velocidade efetiva, traces no Langfuse, comparação de custo em tokens e avaliação com nove perguntas.</p></article></div>
+<!-- Team Manifesto / Final Note for Review Board -->
+<div class="mt-8 p-8 rounded-2xl bg-surface-container-low border border-graphite-border/60 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"><div class="absolute -right-20 -bottom-20 w-80 h-80 bg-deloitte-green/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-3 relative z-10 max-w-3xl">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-deloitte-green text-2xl">military_tech</span>
+<span class="text-xs uppercase tracking-widest text-deloitte-green font-bold">Compromisso com o Cliente &amp; Firma</span>
+</div>
+<h3 class="text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold leading-tight">
+            Prontos para liderar a próxima fronteira em IA Generativa na Deloitte.
+          </h3>
+<p class="text-base lg:text-lg text-medium-contrast leading-relaxed">
+            Este bootcamp consolidou não apenas a maestria técnica sobre os algoritmos mais avançados do planeta, mas a responsabilidade de implantá-los com ética, sustentabilidade e impacto mensurável no negócio.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-4 relative z-10 w-full md:w-auto shrink-0">
+<a class="w-full sm:w-auto text-center px-8 py-4 rounded-lg bg-deloitte-green text-surface-container-lowest text-base uppercase tracking-wider font-bold hover:bg-electric-emerald transition-all shadow-xl" href="#integrantes">
+            Rever Integrantes
+          </a>
+</div></div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- MODAL / GAVETA DETALHADA DO INTEGRANTE    -->
+<!-- ========================================== -->
+<div aria-modal="true" class="fixed inset-0 z-50 items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md transition-opacity duration-300 opacity-0 hidden" id="memberModal" role="dialog" aria-labelledby="memberModalTitle">
+<div class="relative w-full max-w-3xl rounded-2xl bg-surface-container-low border border-graphite-border p-6 md:p-8 shadow-2xl flex flex-col gap-6 max-h-[921px] overflow-y-auto">
+<!-- Modal Header & Return Button -->
+<div class="flex items-center justify-between border-b border-graphite-border/60 pb-4">
+<button class="inline-flex items-center gap-2 text-deloitte-green font-label-md text-label-md uppercase tracking-wider hover:text-electric-emerald transition-colors" onclick="closeMemberModal()">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+<span>Voltar para Visão do Grupo</span>
+</button>
+<button aria-label="Fechar Modal" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-text-muted hover:text-on-surface transition-colors" onclick="closeMemberModal()">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<!-- Dynamic Modal Content (Injected by JS) -->
+<div class="flex flex-col gap-6" id="memberModalContent"></div>
+</div>
+</div>
+<!-- Toast Notification for POC Feedback -->
+<div role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 px-4 py-3 rounded-lg bg-surface-container-high border border-deloitte-green/40 shadow-2xl text-on-surface transition-all transform translate-y-4" id="toastNotification">
+<span class="material-symbols-outlined text-deloitte-green">check_circle</span>
+<span class="font-body-sm text-body-sm" id="toastMessage">Ação executada com sucesso.</span>
+</div>
+<!-- ========================================== -->
+<!-- CLIENT-SIDE INTERACTIVE SCRIPT            -->
+<!-- ========================================== -->
+<script>
+    // Member Profiles Database
+    const teamData = {
+      jefferson: {
+        name: "Jefferson Marcelo",
+        role: "Estudante de Ciência da Computação · CIn-UFPE",
+        tag: "#01 // ENG",
+        bio: "Estudante de Ciência da Computação no CIn-UFPE, com um perfil que combina engenharia, produto e operações de receita. Vem de CRM, RevOps e operações de vendas, onde viu de perto os gargalos manuais entre marketing, vendas e pós-venda e atuou solucionando-os por meio de automações com IA. Atuou como gerente de projetos e desenvolvedor na Fomí e hoje trabalha na Neocubo, automatizando processos reais de negócio. No bootcamp de agentes de IA, o foco é construir agentes e fluxos com Python, LangChain e LangGraph, indo da ideia ao produto funcionando.",
+        careerGoals: "Atuar na interseção entre IA, produto e go-to-market: construir agentes e sistemas de IA como engenheiro, definir o que vale a pena construir como product manager e aplicar isso na prática, automatizando vendas, marketing e operações de receita. Em paralelo, desenvolve a Zem Lab, onde entrega landing pages e soluções com IA para clientes e exercita o ciclo completo: gerar demanda, converter e automatizar.",
+        hardSkills: ["Agentes de IA", "Python", "LangChain & LangGraph", "Product Management", "GTM Engineering", "Automação com IA", "CRM & RevOps", "Landing Pages & Web", "Gestão de Projetos"]
+      },
+      joao: {
+        name: "João Victor",
+        role: "Solution & AI Strategist",
+        age: "21 anos",
+        location: "Olinda, PE",
+        tag: "#02 // ENG IA",
+        about: "Estudante de Sistemas de Informação interessado em Engenharia de IA e no desenvolvimento de sistemas inteligentes. Seu perfil parte da compreensão do problema: entender o contexto, identificar onde a tecnologia pode ajudar e construir uma solução coerente com a necessidade. Enxerga a IA como um meio para resolver problemas, não como um objetivo por si só.",
+        careerAmbition: "Se tornar referência na área de Engenharia de IA, desenvolvendo soluções que contribuam para o sucesso dos clientes por meio do uso inteligente das tecnologias.",
+        interests: "Engenharia de IA, sistemas agênticos, desenvolvimento de software e automação de processos.",
+        technologies: ["Python", "LangGraph", "APIs", "Agentes de IA", "Workflows", "Automação", "Automação de processos", "Transformação digital", "RAG", "Engenharia de prompt", "Discovery", "Levantamento de requisitos"]
+      },
+      rodrigo: {
+        name: "Rodrigo Galvão",
+        role: "Back-End Developer",
+        tag: "#03 // DEV",
+        bio: "Desenvolvedor back-end na Atos Capital, com experiência em C#, .NET, SQL Server e integrações entre sistemas financeiros. Atua na manutenção e evolução de sistemas corporativos, automação de processos, integração de APIs e processamento de arquivos EDI. No bootcamp de agentes de IA, busca expandir sua experiência em engenharia de software para o desenvolvimento de agentes inteligentes utilizando Python, explorando arquitetura, integração e testes.",
+        careerGoals: "Consolidar sua carreira como engenheiro de software, aprofundando conhecimentos em arquitetura, desenvolvimento back-end e sistemas distribuídos. Em paralelo, expandir sua atuação em engenharia de IA, construindo soluções inteligentes que integrem automação, software e resolução de problemas reais de negócio.",
+        hardSkills: ["C#", ".NET", "Python", "Engenharia de Software", "APIs REST", "SQL Server", "PostgreSQL", "Integrações de Sistemas", "Agentes de IA", "Automação", "Docker", "CI/CD", "Git", "TypeScript", "Next.js"]
+      },
+      pedro: {
+        name: "Pedro Pereira",
+        role: "AI DATA SCIENTIST",
+        tag: "#04 // SCI",
+        bio: "Estudante de Ciência de Dados e IA na CESAR School, mergulhado em engenharia de dados, engenharia de IA e análise de dados. Une tecnologia e visão criativa da formação técnica em Design Gráfico e da vivência como Técnico de TI. Desenvolve um projeto incubado na CESAR School com agente de IA para previsão e predição em placas solares, além de uma solução para monitorar baterias elétricas e dar a elas um novo destino após sua primeira vida. No Bootcamp e nos estudos, seu foco é dominar a construção de multiagentes, LLMs, engenharia de prompt, arquitetura e orquestração de fluxos.",
+        careerGoals: "Iniciar sua trajetória profissional em inteligência artificial e dados trabalhando em desafios reais. Busca um ambiente onde possa unir curiosidade técnica, gestão de projetos e vontade de inovar para evoluir, transformar aprendizado em entregas concretas e aplicar o potencial da IA na prática.",
+        hardSkills: ["Agentes de IA", "Python para Dados", "Engenharia de Dados", "Análise de Dados", "R", "Gestão de Projetos", "Inovação & Startups", "Design Gráfico"]
+      }
+    };
+
+    // Modal Handling
+    const memberModal = document.getElementById('memberModal');
+    const memberModalContent = document.getElementById('memberModalContent');
+    let modalOpener = null;
+    const topNavLinks = [...document.querySelectorAll('.top-nav-link')];
+    let navClickTarget = null;
+    let navClickTimer = null;
+    function setActiveTopNavigation(activeId) {
+      topNavLinks.forEach(link => {
+        if (link.dataset.path === activeId) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    function updateTopNavigation() {
+      let activeId = 'inicio';
+      for (const id of ['inicio', 'integrantes', 'repositorios-entregaveis']) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= 160) activeId = id;
+      }
+      setActiveTopNavigation(navClickTarget || activeId);
+    }
+    topNavLinks.forEach(link => link.addEventListener('click', () => {
+      navClickTarget = link.dataset.path;
+      setActiveTopNavigation(navClickTarget);
+      clearTimeout(navClickTimer);
+      navClickTimer = setTimeout(() => {
+        navClickTarget = null;
+        updateTopNavigation();
+      }, 1200);
+    }));
+    window.addEventListener('scroll', updateTopNavigation, { passive: true });
+    window.addEventListener('hashchange', updateTopNavigation);
+    updateTopNavigation();
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      menuToggle.setAttribute('aria-label', expanded ? 'Abrir menu' : 'Fechar menu');
+      mobileNav.classList.toggle('hidden', expanded);
+    });
+    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileNav.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menu');
+    }));
+
+    function openMemberModal(memberKey) {
+      const data = teamData[memberKey];
+      if (!data) return;
+      const cardPhoto = document.querySelector(`[data-member="${memberKey}"] .member-image img`);
+      modalOpener = document.activeElement;
+
+      memberModalContent.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-4 relative rounded-xl overflow-hidden bg-surface-container aspect-square md:aspect-[3/4]">
+            ${cardPhoto ? `<img src="${cardPhoto.getAttribute('src')}" alt="Retrato de ${data.name}" class="w-full h-full object-cover">` : `<div class="w-full h-full flex items-center justify-center" role="img" aria-label="Identificação tipográfica de ${data.name}; foto não fornecida"><span class="font-headline-xl text-7xl font-bold text-deloitte-green" aria-hidden="true">JM</span></div>`}
+            <div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest text-[10px] font-mono text-deloitte-green">${data.tag}</div>
+          </div>
+          
+          <div class="md:col-span-8 flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+              <span class="font-label-sm text-label-sm uppercase tracking-widest text-deloitte-green">${data.role}</span>
+              <h2 id="memberModalTitle" class="font-headline-lg text-headline-lg text-on-surface">${data.name}</h2>
+              <div class="flex items-center gap-3 text-text-dim font-label-sm text-label-sm mt-1">
+                ${data.age ? `<span>${data.age}</span><span>•</span>` : ''}
+                ${data.location ? `<span>${data.location}</span><span>•</span>` : ''}
+                <span class="text-electric-emerald font-semibold">GENAI</span>
+              </div>
+            </div>
+
+            ${data.about ? `
+              <div class="space-y-2"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Sobre</h3><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">${data.about}</p></div>
+              <div class="space-y-2"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Ambição de Carreira na Deloitte</h3><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">${data.careerAmbition}</p></div>
+              <div class="space-y-2"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Interesses profissionais</h3><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">${data.interests}</p></div>
+              <div class="space-y-2"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Tecnologias e temas</h3><div class="flex flex-wrap gap-2">${data.technologies.map(item => `<span class="px-2.5 py-1 rounded bg-surface-container-high text-xs font-mono text-on-surface-variant">${item}</span>`).join('')}</div></div>
+            ` : `
+              <div class="space-y-1"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Histórico & Foco no Bootcamp</h3><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">${data.bio}</p></div>
+              <div class="space-y-1"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Ambição de Carreira na Deloitte</h3><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">${data.careerGoals}</p></div>
+              <div class="space-y-2"><h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Competências-Chave</h3><div class="flex flex-wrap gap-2">${data.hardSkills.map(skill => `<span class="px-2.5 py-1 rounded bg-surface-container-high text-xs font-mono text-on-surface-variant">${skill}</span>`).join('')}</div></div>
+            `}
+
+            <p class="text-body-sm text-text-muted">Links pessoais disponíveis mediante confirmação dos integrantes.</p>
+          </div>
+        </div>
+      `;
+
+      memberModal.classList.remove('hidden');
+      memberModal.classList.add('flex');
+      setTimeout(() => {
+        memberModal.classList.remove('opacity-0');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+      memberModal.querySelector('button').focus();
+    }
+
+    function closeMemberModal() {
+      memberModal.classList.add('opacity-0');
+      setTimeout(() => {
+        memberModal.classList.add('hidden');
+        memberModal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+        modalOpener?.focus();
+      }, 250);
+    }
+
+    // Close on backdrop click
+    memberModal.addEventListener('click', (e) => {
+      if (e.target === memberModal) {
+        closeMemberModal();
+      }
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && !memberModal.classList.contains('hidden')) {
+        const focusables = [...memberModal.querySelectorAll('button, a[href]')];
+        const first = focusables[0], last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+      if (e.key === 'Escape' && !memberModal.classList.contains('hidden')) {
+        closeMemberModal();
+      }
+    });
+
+    // Deliverables Filter Functionality
+    function filterDeliverables(category) {
+      const cards = document.querySelectorAll('.deliverable-card');
+      const buttons = document.querySelectorAll('.deliverable-filter-btn');
+
+      // Update button styling
+      buttons.forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-target') === category));
+        if (btn.getAttribute('data-target') === category) {
+          btn.className = 'deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider bg-deloitte-green text-surface-container-lowest font-bold transition-all';
+        } else {
+          btn.className = 'deliverable-filter-btn px-4 py-2 rounded font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-on-surface transition-all';
+        }
+      });
+
+      // Show/Hide cards
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory.split(' ').includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Toast Notification for Demo / Evidence interactions
+    function showPocFeedback(pocName) {
+      const toast = document.getElementById('toastNotification');
+      const toastMessage = document.getElementById('toastMessage');
+      
+      toastMessage.innerHTML = `A demonstração de <strong>${pocName}</strong> ainda não está conectada nesta página. Consulte o repositório para ver o código.`;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-4');
+        toast.classList.add('translate-y-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0');
+        toast.classList.add('translate-y-4');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+          toast.classList.remove('flex');
+        }, 200);
+      }, 3500);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest relative z-10 pt-16 pb-12 shadow-[0_-1px_12px_rgba(0,0,0,0.6)]"><div class="max-w-7xl mx-auto px-6 lg:px-12"><div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12"><div class="md:col-span-6 flex flex-col gap-4"><div class="flex items-center gap-3"><span class="font-headline-sm text-headline-sm text-on-surface">Time 04 — Bootcamp GenAI</span></div><p class="font-body-sm text-body-sm text-text-muted max-w-md">Construindo soluções autônomas e transformadoras no ecossistema Deloitte. Síntese de engenharia de software de ponta, arquitetura generativa e entrega de valor empresarial.</p><div class="flex items-center gap-2"><span class="font-label-sm text-label-sm text-deloitte-green uppercase tracking-wider">Motto:</span><span class="font-label-sm text-label-sm text-on-surface tracking-wide">Sinergia Algorítmica, Impacto Humano &amp; Precisão Contínua</span></div></div><div class="md:col-span-3 flex flex-col gap-3"><span class="font-label-md text-label-md uppercase tracking-wider text-deloitte-green">Navegação Rápida</span><ul class="flex flex-col gap-2"><li class="flex items-center"><a class="font-body-sm text-body-sm text-text-muted hover:text-on-surface transition-colors" href="#inicio">Início</a></li><li class="flex items-center"><a class="font-body-sm text-body-sm text-text-muted hover:text-on-surface transition-colors" href="#integrantes">Integrantes</a></li><li class="flex items-center"><a class="font-body-sm text-body-sm text-text-muted hover:text-on-surface transition-colors" href="#repositorios-entregaveis">Repositórios &amp; Entregáveis</a></li></ul></div><div class="md:col-span-3 flex flex-col gap-3"><span class="font-label-md text-label-md uppercase tracking-wider text-deloitte-green">Bootcamp &amp; Código</span><p class="font-body-sm text-body-sm text-text-muted">Acesse todos os pipelines, protótipos de agentes e documentação técnica.</p><a class="inline-flex items-center gap-2 font-label-md text-label-md px-4 py-2.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high hover:text-on-surface transition-all w-fit" href="#repositorios-entregaveis"><span class="material-symbols-outlined text-[18px] text-deloitte-green">terminal</span>&gt; github_workspace</a></div></div><div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="font-body-sm text-body-sm text-text-dim">© 2024 Deloitte Touche Tohmatsu &amp; Time 04 GenAI. Todos os direitos reservados.</p><div class="flex items-center gap-4 text-text-dim"><span class="font-label-sm text-label-sm uppercase tracking-wider">Programa de Aceleração em IA Generativa</span><span class="w-1 h-1 rounded-full bg-deloitte-green"></span><span class="font-label-sm text-label-sm uppercase tracking-wider">Edição 2024</span></div></div></div></footer>
+
+</body></html>
